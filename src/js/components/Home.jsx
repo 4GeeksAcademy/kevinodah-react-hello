@@ -10,8 +10,8 @@ const Home = () => {
   //Handling form submit
   const handleSubmit = (e) => {
     e.preventDefault()
-    if(input.trim() === "");
-    setTasks(...tasks, input);
+    if(input.trim() === "") return;
+    setTasks([...tasks, input]);
     setInput("")
 
   }
@@ -21,11 +21,19 @@ const Home = () => {
       <div className="container">
         <h1 className="h1 text-danger fw-light mb-2 text-center">todos</h1>
         <div className="d-flex flex-column">
-          <form>
-            <input type="text" placeholder="What needs to be done?" className="p-3 w-100"/>
+          <form onSubmit={handleSubmit}>
+            <input type="text" value={input}
+            onChange={e =>
+              setInput(e.target.value)
+            }
+             placeholder="What needs to be done?" className="p-3 w-100"/>
           </form>
               {tasks.map((task, indexOfTask) => (
-          <p key={indexOfTask} className="p-3 border w-100">{task}</p>
+                <ul>
+                  <li key={indexOfTask}>
+                    {task}
+                  </li>
+                </ul>
         ))}
 
           </div>
