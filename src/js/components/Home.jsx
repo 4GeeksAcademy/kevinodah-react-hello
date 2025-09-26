@@ -29,9 +29,11 @@ const Home = () => {
              placeholder="What needs to be done?" className="p-3 w-100"/>
           </form>
             {tasks.length === 0 ? (
-              <p className="text-center p-2">No tasks, add a task</p>
+              <p className="text-center p-2">No tasks, add a task 📋</p>
             ) : (
-              tasks.map(task => <p>{task}</p>)
+              tasks.map(task => <p className="p-2 border mt-2">{task}
+              <span className="delete-icon"><i class="fa fa-trash"></i>
+</span></p>)
             )}
 
 
