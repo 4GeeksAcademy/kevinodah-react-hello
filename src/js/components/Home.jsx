@@ -28,14 +28,14 @@ const Home = () => {
             }
              placeholder="What needs to be done?" className="p-3 w-100"/>
           </form>
-              {tasks.map((task, indexOfTask) => (
-                <ul>
-                  <li key={indexOfTask}>
-                    {task}
-                  </li>
-                </ul>
-        ))}
+            {tasks.length === 0 ? (
+              <p className="text-center p-2">No tasks, add a task</p>
+            ) : (
+              tasks.map(task => <p>{task}</p>)
+            )}
 
+
+            
           </div>
           </div>
           
