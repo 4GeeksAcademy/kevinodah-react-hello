@@ -11,10 +11,14 @@ const Home = () => {
     setInput("");
   };
 
+  const deleteTask = (index) => {
+    setTasks(tasks => tasks.filter((_, i) => i !== index));
+  }
+  
   return (
     <div className="container-fluid">
       <div className="container">
-        <h1 className="h1 text-danger fw-light mb-2 text-center">todos</h1>
+        <h1 className="h1 text-danger fw-light mb-2 mt-2 text-center">todos</h1>
         <div className="d-flex flex-column">
           <form onSubmit={handleSubmit}>
             <input
@@ -34,8 +38,11 @@ const Home = () => {
                 <p className="mb-0">
                   {task}
                 </p>
-                    <i className="delete-icon fa-solid fa-square-minus text-danger"></i>
-              </div>
+                <div>
+                    <i onClick={() => deleteTask(idx)} className="delete-icon fa-solid fa-square-minus text-danger"></i>
+
+                </div>
+                                                        </div>
             ))
           )}
         </div>
